@@ -1,11 +1,9 @@
 package ;
 
+import Engine;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
-import openfl.Assets;
-import Engine;
-
 
 
 /**

@@ -1,25 +1,10 @@
 package entity;
 
-import flash.display.Sprite;
-import flash.display.Sprite;
-import flash.events.Event;
-import flash.external.ExternalInterface;
-import flash.geom.Rectangle;
-import flash.Lib;
-import haxe.macro.Type.BaseType;
-import openfl.Assets;
-import flash.display.*;
-import flash.ui.Keyboard;
-import flash.events.*;
-import flash.Lib;
-import flash.events.KeyboardEvent;
-import openfl.display.Tilesheet;
-import utils.KeyboardUtil;
-import flash.display.Bitmap;
-import haxe.Timer;
-import utils.AnimationUtil;
-import animation.AnimationState;
 import animation.SpriteSheetHandler;
+import flash.display.*;
+import flash.display.Sprite;
+import flash.events.*;
+import utils.AnimationUtil;
 
 /**
  * ...

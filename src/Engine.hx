@@ -1,20 +1,11 @@
 package ;
 
-import flash.display.Sprite;
-import flash.events.Event;
-import flash.external.ExternalInterface;
-import flash.Lib;
-import haxe.macro.Type.BaseType;
-import openfl.Assets;
-import flash.display.*;
-import flash.ui.Keyboard;
-import flash.events.*;
-import flash.Lib;
-import flash.events.KeyboardEvent;
-import utils.KeyboardUtil;
-import flash.display.Bitmap;
-import haxe.Timer;
 import entity.Player;
+import flash.display.*;
+import flash.events.*;
+import flash.ui.Keyboard;
+import haxe.Timer;
+import utils.KeyboardUtil;
 import utils.MouseUtil;
 /**
  * ...

@@ -1,7 +1,6 @@
 package utils;
-import flash.Lib;
 import flash.events.KeyboardEvent;
-import flash.ui.Keyboard;
+import flash.Lib;
 import Map;
 
 /**

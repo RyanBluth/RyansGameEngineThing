@@ -5,7 +5,6 @@ package utils;
  * @author Ryan
  */
 import flash.events.MouseEvent;
-import flash.ui.Mouse;
 import flash.Lib;
  
 class MouseUtil
