@@ -76,11 +76,22 @@ class Engine
 			player.setAnimationState("walkUp");
 		}
 		
-		if  (keyboardUtil.getPressedKeys().exists(Keyboard.DOWN))
+		if (keyboardUtil.getPressedKeys().exists(Keyboard.DOWN))
 		{
 			player.y += 3;
 			player.setAnimationState("walkDown");
 		}
+
+        if (!keyboardUtil.getPressedKeys().exists(Keyboard.DOWN) && !keyboardUtil.getPressedKeys().exists(Keyboard.UP) && !keyboardUtil.getPressedKeys().exists(Keyboard.LEFT) && !keyboardUtil.getPressedKeys().exists(Keyboard.RIGHT))
+        {
+            switch (keyboardUtil.getLastKeyUp())
+            {
+                case 37: player.setAnimationState("neutralLeft");
+                case 38: player.setAnimationState("neutralUp");
+                case 39: player.setAnimationState("neutralRight");
+                case 40: player.setAnimationState("neutralDown");
+            }
+        }
 		
 	}
 	

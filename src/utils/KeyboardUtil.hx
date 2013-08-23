@@ -11,6 +11,7 @@ class KeyboardUtil
 {
 	
 	private var pressedKeys:Map<Int,Int>;
+    private var lastKeyUp:Int;
 
 	public function new() 
 	{
@@ -30,6 +31,7 @@ class KeyboardUtil
 	private function key_Up(evt:KeyboardEvent){
 		
 		pressedKeys.remove(evt.keyCode);
+        lastKeyUp = evt.keyCode;
 		
 	}
 	
@@ -37,6 +39,11 @@ class KeyboardUtil
 	{
 		return pressedKeys;
 	}
+
+    public function getLastKeyUp():Int
+    {
+        return lastKeyUp;
+    }
 	
 	
 }
