@@ -5,8 +5,16 @@ import flash.display.*;
 import flash.events.*;
 import flash.ui.Keyboard;
 import haxe.Timer;
+import utils.CollisionUtil;
 import utils.KeyboardUtil;
 import utils.MouseUtil;
+import flash.Lib;
+import flash.display.BlendMode;
+import flash.Lib;
+import openfl.Assets;
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.Sprite;
 /**
  * ...
  * @author Ryan
@@ -20,12 +28,15 @@ class Engine
 	//Utils
 	private var keyboardUtil:KeyboardUtil; 
 	private var mouseUtil:MouseUtil;
+	private var collisionUtil:CollisionUtil;
 	
 	//Main Reference
 	private var stage:Main;
 	
 	//Assets
 	private var player:Player;
+	
+	private var sprite:Sprite;
 	
 	public function new(mainStage:Main) 
 	{
@@ -35,12 +46,14 @@ class Engine
 		//Setup Utils
 		keyboardUtil = new KeyboardUtil();
 		mouseUtil = new MouseUtil();
+		collisionUtil = new CollisionUtil();
 		
 		setUp();
 		
 		//loop the game
-		gameTimer = new Timer(17);
-		gameTimer.run = function() {gameLoop();};
+		gameTimer = new Timer(20);
+		gameTimer.run = function() { gameLoop(); };
+		
 		
 	}
 	
@@ -48,12 +61,28 @@ class Engine
 	{
 		player = new Player();
 		stage.addChild(player);
+		
+		sprite = new Sprite();
+		var bit:BitmapData = Assets.getBitmapData("img/testtt.png");
+		var titmap:Bitmap = new Bitmap(bit);
+		titmap.width = 50;
+		titmap.height = 50;
+		titmap.x = 0;
+		titmap.y = 0;
+		sprite.x = 200;
+		sprite.y = 200;
+		
+		sprite.addChild(titmap);
+		stage.addChild(sprite);
 	}
 	
 	public function gameLoop()
 	{
+		
 		managePlayerControl();
 		draw();
+		trace(collisionUtil.isColliding(player, sprite));
+		
 	}
 	
 	private function managePlayerControl()
