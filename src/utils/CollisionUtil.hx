@@ -55,7 +55,7 @@ class CollisionUtil
 		 */
 		var diffXOne = rect.x - spriteOne.x;
 		var diffYOne = rect.y - spriteOne.y;
-		var diffXTwo = rect.x - spriteOne.x;
+		var diffXTwo = rect.x - spriteTwo.x;
 		var diffYTwo = rect.y - spriteTwo.y;
 		
 		/*
@@ -74,8 +74,8 @@ class CollisionUtil
 			{
 				
 				if (
-				(Math.abs(bitmapOne.getPixel32(Math.round(diffXOne) + i, Math.round(diffYOne) + j)) != 0 ) 
-				&& (Math.abs(bitmapTwo.getPixel32(Math.round(diffXTwo)+i, Math.round(diffYTwo)+j)) != 0 ))
+				(bitmapOne.getPixel32(Math.round(diffXOne) + i, Math.round(diffYOne) + j) != 0 ) 
+				&& (bitmapTwo.getPixel32(Math.round(diffXTwo)+i, Math.round(diffYTwo)+j) != 0 ))
 				{
 					return true;
 				}
