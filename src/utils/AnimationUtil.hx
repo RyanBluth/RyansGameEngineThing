@@ -41,6 +41,11 @@ class AnimationUtil
 		
 		var tileIds:Array<Int> = new Array();
 		
+		if (addedTiles == null)
+		{
+			addedTiles = 0;
+		}
+	
 		for(i in addedTiles...addedTiles+frames.length)
 		{
 			tileIds.push(addedTiles);
@@ -53,8 +58,6 @@ class AnimationUtil
 	public function setAnimationSate(name:String)
 	{
 		currentSate = animationStates.get(name); 
-		
-		trace(name);
 	}
 	
 	public function draw()
