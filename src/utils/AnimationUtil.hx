@@ -30,6 +30,7 @@ class AnimationUtil
 		graphics = graphic;
 		tileSheet = new Tilesheet(Assets.getBitmapData(bitmapPath));
 		animationStates = new Map();
+		addedTiles = 0;
 	}
 	
 	public function addAnimationState(name:String, frames:Array<Rectangle>, frameRate:Int):Void
@@ -41,10 +42,6 @@ class AnimationUtil
 		
 		var tileIds:Array<Int> = new Array();
 		
-		if (addedTiles == null)
-		{
-			addedTiles = 0;
-		}
 	
 		for(i in addedTiles...addedTiles+frames.length)
 		{
