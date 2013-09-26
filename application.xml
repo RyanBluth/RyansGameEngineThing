@@ -4,13 +4,14 @@
 	
   
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="Game Engine" package="com.ssdsd" version="1.0.0" company="Ryan" />
-	<meta title="Game Engine" package="com.sssdsd" version="1.0.0" company="Ryan" />
+	<meta title="GameEngine" package="com.game.Engine" version="1.0.0" company="Ryan" />
+	<meta title="GameEngine" package="com.game.Engine" version="1.0.0" company="Ryan" />
+	
 	<!-- output -->
-	<app main="Main" file="ssdsd" path="bin" />
+	<app main="Main" file="GameEngine" path="bin" />
 	
 	<window background="#FFFFFF" fps="60" />
-	<window width="800" height="480" unless="mobile" />
+	<window width="800" height="480" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->
@@ -18,12 +19,11 @@
 	<haxelib name="openfl" />
 	<haxelib name="actuate" />
 	
-	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
 	<assets path="assets/img" rename="img" />
 	
 	<!-- optimize output
-	<haxeflag name="-dce full" /> -->
+	<haxeflag name="-dce full" />-->
 	
 </project>

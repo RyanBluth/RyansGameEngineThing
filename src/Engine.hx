@@ -1,20 +1,19 @@
 package ;
 
+import component.Emitter;
 import entity.Player;
 import flash.display.*;
-import flash.events.*;
-import flash.ui.Keyboard;
-import haxe.Timer;
-import utils.CollisionUtil;
-import utils.KeyboardUtil;
-import utils.MouseUtil;
-import flash.Lib;
-import flash.display.BlendMode;
-import flash.Lib;
-import openfl.Assets;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.display.Sprite;
+import flash.events.*;
+import flash.ui.Keyboard;
+import haxe.Timer;
+import openfl.Assets;
+import utils.CollisionUtil;
+import utils.KeyboardUtil;
+import utils.MouseUtil;
+import flash.ui.Mouse;
 /**
  * ...
  * @author Ryan
@@ -38,22 +37,25 @@ class Engine
 	
 	private var sprite:Sprite;
 	
+	private var emitter:Emitter;
+	private var emitter1:Emitter;
+	private var emitter2:Emitter;
+	
 	public function new(mainStage:Main) 
 	{
-		
 		stage = mainStage;
 		
 		//Setup Utils
 		keyboardUtil = new KeyboardUtil();
 		mouseUtil = new MouseUtil();
 		collisionUtil = new CollisionUtil();
+		emitter = new Emitter(250,250,0,30,50,5,20,30,0xDDDDDD,0xEEEEEE,true,false);
 		
 		setUp();
 		
 		//loop the game
-		gameTimer = new Timer(20);
+		gameTimer = new Timer(Math.round(20));
 		gameTimer.run = function() { gameLoop(); };
-		
 		
 	}
 	
@@ -61,7 +63,6 @@ class Engine
 	{
 		player = new Player();
 		stage.addChild(player);
-		
 		sprite = new Sprite();
 		var bit:BitmapData = Assets.getBitmapData("img/testtt.png");
 		var titmap:Bitmap = new Bitmap(bit);
@@ -74,14 +75,29 @@ class Engine
 		
 		sprite.addChild(titmap);
 		stage.addChild(sprite);
+		
+		stage.addChild(emitter);
+	
 	}
 	
 	public function gameLoop()
 	{
 		
+		emitter.update();
+		emitter.x = stage.mouseX;
+		emitter.y = stage.mouseY;
+		
 		managePlayerControl();
+		
 		draw();
-		trace(collisionUtil.isColliding(player, sprite));
+		
+		if (collisionUtil.isColliding(player, sprite))
+		{
+			emitter.setLowerColour(0x555555);
+		}
+		else {
+			emitter.setLowerColour(0xDDDDDD);
+		}
 		
 	}
 	
